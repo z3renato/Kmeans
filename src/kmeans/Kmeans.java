@@ -107,42 +107,7 @@ public class Kmeans {
         for (int i = 0; i < centroides.size(); i++) {
             particoes.add(new ArrayList<>());
         }
-        int cont=0;
-        while (cont<25) {
-
-            int indMenor = 0;
-            double menor = 526736567;
-            double d;
-            for (int a = 0; a < centroides.size(); a++) {
-
-                for (int i = 0; i < elementos.size(); i++) {
-                    for (int j = 0; j < indicesSorteados.length; j++) {
-                        if (indicesSorteados[j] == i) {
-                            continue;
-                        }
-                    }
-                    if (existeValor(i, particoes)) {
-                        continue;
-                    }
-                    d = distanciaEuclidiana(centroides.get(a), elementos.get(i));
-                    if (menor > d) {
-                        menor = d;
-                        indMenor = i;
-                    }
-                    particoes.get(a).add(indMenor);
-
-                }
-            }
-            if(totalElementos(particoes)==85){
-                break;
-            }
-            cont++;
-        }
-        for(List<Integer> p : particoes){
-            for (int i = 0; i < p.size(); i++) {
-                System.out.println(p.get(i)+", ");
-            }
-        }
+      
     }
     public int totalElementos(List<List<Integer>> valores){
         int total = 0;
